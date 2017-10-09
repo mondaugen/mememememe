@@ -1,7 +1,9 @@
 #!/bin/bash
-if [ -z "${INSTALL_DIR}" ] then
+if [ -z "${INSTALL_DIR}" ]
+then
     INSTALL_DIR=${HOME}/configs
 fi
+mkdir -p ${INSTALL_DIR}
 cd ${INSTALL_DIR}
 
 # install vimrc
@@ -24,5 +26,5 @@ cd bash
 git checkout nick-dev
 ./configure --prefix=${HOME}
 make && make install
-echo 'export PATH=${HOME}/bin:${PATH}' >> ~/.profile
+echo 'export PATH="${HOME}/bin:${PATH}"' >> ~/.profile
 cd ..
